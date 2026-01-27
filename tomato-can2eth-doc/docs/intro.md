@@ -2,46 +2,16 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 介绍
 
-Let's discover **Docusaurus in less than 5 minutes**.
+tomato-can2eth-doc 是 tomato-can2eth 项目的完整配套技术文档，系统梳理了基于 STM32F107VCT6 芯片的 CAN 总线与以太网双向数据透传方案的设计原理、实现流程及应用指南。
 
-## Getting Started
+该文档针对 tomato-can2eth 项目的核心功能 —— 通过 STM32F107VCT6 的 CAN 控制器与以太网外设，完成 CAN 帧与以太网数据包的双向解析、转换和收发，进行了详尽拆解。
 
-Get started by **creating a new site**.
+同时聚焦项目的应用价值，即解决无 CAN 总线接口的物联网设备接入 CAN 网络的痛点，为这类设备提供标准化、高兼容性的以太网连接通道，助力工业物联网、农业自动化等场景下的设备组网与数据互通。
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+tomato-can2eth-doc 作为 tomato-can2eth 跨协议通信项目的官方技术文档，围绕 STM32F107VCT6 主控芯片，深入讲解了 CAN 总线与以太网双向收发功能的技术实现与应用规范。
 
-### What you'll need
+该项目以 STM32F107VCT6 为核心，构建了轻量化的协议转换网关：一方面接收 CAN 总线数据并封装为以太网数据包向外转发，另一方面将以太网侧的指令与数据解析为 CAN 帧，下发至 CAN 网络中的设备；而 tomato-can2eth-doc 则系统整理了该网关的硬件原理图解析、LwIP 协议栈移植方法、CAN 驱动开发要点、数据透传流程调试技巧及典型应用案例。
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+其核心目标是为开发者提供一站式技术参考，助力无 CAN 接口的物联网设备快速接入工业或农业场景的 CAN 网络，实现低成本、高效率的通信组网。
