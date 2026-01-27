@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-basic-tutorial/config-devel-environment" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">STM32F107VCT6 开发环境配置详细操作手册 | tomato-can2eth-doc</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tomato-ros.github.io/tomato-can2eth-doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tomato-ros.github.io/tomato-can2eth-doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STM32F107VCT6 开发环境配置详细操作手册 | tomato-can2eth-doc"><meta data-rh="true" name="description" content="一、文档说明"><meta data-rh="true" property="og:description" content="一、文档说明"><link data-rh="true" rel="icon" href="/tomato-can2eth-doc/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"><link data-rh="true" rel="alternate" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"基本教程","item":"https://tomato-ros.github.io/tomato-can2eth-doc/docs/category/基本教程"},{"@type":"ListItem","position":2,"name":"STM32F107VCT6 开发环境配置详细操作手册","item":"https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"}]}</script><link rel="alternate" type="application/rss+xml" href="/tomato-can2eth-doc/blog/rss.xml" title="tomato-can2eth-doc RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/tomato-can2eth-doc/blog/atom.xml" title="tomato-can2eth-doc Atom Feed"><link rel="stylesheet" href="/tomato-can2eth-doc/assets/css/styles.d878059b.css">
+<script src="/tomato-can2eth-doc/assets/js/runtime~main.8033b600.js" defer="defer"></script>
+<script src="/tomato-can2eth-doc/assets/js/main.eee08ffa.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/tomato-can2eth-doc/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/tomato-can2eth-doc/"><div class="navbar__logo"><img src="/tomato-can2eth-doc/img/logo.svg" alt="tomato-can2eth-doc Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/tomato-can2eth-doc/img/logo.svg" alt="tomato-can2eth-doc Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">tomato-can2eth-doc</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/tomato-can2eth-doc/">首页</a><a class="navbar__item navbar__link" href="/tomato-can2eth-doc/docs/intro">文档</a><a class="navbar__item navbar__link" href="/tomato-can2eth-doc/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/tomato-ros/tomato-can2eth-doc" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tomato-can2eth-doc/docs/intro"><span title="介绍" class="linkLabel_WmDU">介绍</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/tomato-can2eth-doc/docs/category/基本教程"><span title="基本教程" class="categoryLinkLabel_W154">基本教程</span></a><button aria-label="折叠侧边栏分类 &#x27;基本教程&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"><span title="STM32F107VCT6 开发环境配置详细操作手册" class="linkLabel_WmDU">STM32F107VCT6 开发环境配置详细操作手册</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"><span title="STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册" class="linkLabel_WmDU">STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/tomato-can2eth-doc/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/tomato-can2eth-doc/docs/category/基本教程"><span>基本教程</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">STM32F107VCT6 开发环境配置详细操作手册</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>STM32F107VCT6 开发环境配置详细操作手册</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="一文档说明">一、文档说明<a href="#一文档说明" class="hash-link" aria-label="一、文档说明的直接链接" title="一、文档说明的直接链接" translate="no">​</a></h2>
+<p>本文档针对 STM32F107VCT6 开发板，详细讲解基于 STM32CubeIDE 1.18.1 和 STM32CubeMX 6.14.1 的开发环境搭建步骤，包含工具安装、开发板硬件连接、调试器配置等核心内容，确保开发环境可稳定运行并支持 ETH/CAN/串口调试功能。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="二软硬件环境准备">二、软硬件环境准备<a href="#二软硬件环境准备" class="hash-link" aria-label="二、软硬件环境准备的直接链接" title="二、软硬件环境准备的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-软件工具清单">2.1 软件工具清单<a href="#21-软件工具清单" class="hash-link" aria-label="2.1 软件工具清单的直接链接" title="2.1 软件工具清单的直接链接" translate="no">​</a></h3>
+<table><thead><tr><th>工具名称</th><th>版本号</th><th>下载地址（官方）</th><th>用途说明</th></tr></thead><tbody><tr><td>STM32CubeMX</td><td>6.14.1</td><td><a href="https://www.st.com/en/development-tools/stm32cubemx.html" target="_blank" rel="noopener noreferrer" class="">https://www.st.com/en/development-tools/stm32cubemx.html</a></td><td>外设配置、工程代码生成</td></tr><tr><td>STM32CubeIDE</td><td>1.18.1</td><td><a href="https://www.st.com/en/development-tools/stm32cubeide.html" target="_blank" rel="noopener noreferrer" class="">https://www.st.com/en/development-tools/stm32cubeide.html</a></td><td>代码编辑、编译、调试</td></tr><tr><td>ST-Link/V2 驱动</td><td>最新版</td><td><a href="https://www.st.com/en/development-tools/stsw-link009.html" target="_blank" rel="noopener noreferrer" class="">https://www.st.com/en/development-tools/stsw-link009.html</a></td><td>ARM 仿真器（JTAG）驱动</td></tr><tr><td>串口调试助手</td><td>任意版本</td><td>第三方工具（如串口助手、SecureCRT）</td><td>查看 UART 调试日志</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-硬件清单">2.2 硬件清单<a href="#22-硬件清单" class="hash-link" aria-label="2.2 硬件清单的直接链接" title="2.2 硬件清单的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">STM32F107VCT6 开发板 ×1</li>
+<li class="">ARM 仿真器（支持 JTAG 协议）×1</li>
+<li class="">以太网网线 ×1（连接 RJ45 接口与路由器/电脑）</li>
+<li class="">USB 转串口模块 ×1（若开发板无内置串口）</li>
+<li class="">DC 电源适配器（5V/12V，匹配开发板 DC 接口）×1</li>
+<li class="">CAN 模块（如 TJA1050 模块）×1（可选，用于 CAN 功能测试）</li>
+<li class="">杜邦线若干（用于外设连接）</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="三stm32-工具安装配置">三、STM32 工具安装配置<a href="#三stm32-工具安装配置" class="hash-link" aria-label="三、STM32 工具安装配置的直接链接" title="三、STM32 工具安装配置的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-stm32cubemx-安装">3.1 STM32CubeMX 安装<a href="#31-stm32cubemx-安装" class="hash-link" aria-label="3.1 STM32CubeMX 安装的直接链接" title="3.1 STM32CubeMX 安装的直接链接" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>下载安装包</strong>：<!-- -->
+<ul>
+<li class="">从官方地址下载对应系统（Windows/Linux）的 STM32CubeMX 6.14.1 安装包；</li>
+<li class="">双击安装包，按向导完成安装，建议安装路径选择非中文目录（如 <code>D:\ST\STM32CubeMX</code>）。</li>
+</ul>
+</li>
+<li class=""><strong>安装固件库</strong>：<!-- -->
+<ul>
+<li class="">打开 STM32CubeMX，点击主界面 <code>Help</code> -&gt; <code>Manage embedded software packages</code>；</li>
+<li class="">在弹出窗口中，展开 <code>STM32F1 Series</code>，勾选 <code>STM32Cube FW_F1 V1.8.5</code>（或最新兼容版本）；</li>
+<li class="">点击 <code>Install Now</code>，等待固件库下载并安装完成。</li>
+</ul>
+</li>
+<li class=""><strong>验证安装</strong>：<!-- -->
+<ul>
+<li class="">重启 STM32CubeMX，在 <code>New Project</code> 中可选择 <code>STM32F107VCT6</code> 芯片，说明安装成功。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-stm32cubeide-安装">3.2 STM32CubeIDE 安装<a href="#32-stm32cubeide-安装" class="hash-link" aria-label="3.2 STM32CubeIDE 安装的直接链接" title="3.2 STM32CubeIDE 安装的直接链接" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>下载与安装</strong>：<!-- -->
+<ul>
+<li class="">下载 STM32CubeIDE 1.18.1 安装包（含 JRE 运行环境）；</li>
+<li class="">运行安装程序，接受许可协议，选择安装路径（如 <code>D:\ST\STM32CubeIDE_1.18.1</code>）；</li>
+<li class="">安装完成后，启动 STM32CubeIDE，首次启动会提示选择工作空间（建议非中文路径）。</li>
+</ul>
+</li>
+<li class=""><strong>配置编译器</strong>：<!-- -->
+<ul>
+<li class="">打开 STM32CubeIDE，点击 <code>Window</code> -&gt; <code>Preferences</code>；</li>
+<li class="">展开 <code>STM32Cube</code> -&gt; <code>Toolchains</code>，确认 GCC 编译器路径正确（默认已配置）；</li>
+<li class="">点击 <code>Apply and Close</code> 保存配置。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-arm-仿真器驱动安装">3.3 ARM 仿真器驱动安装<a href="#33-arm-仿真器驱动安装" class="hash-link" aria-label="3.3 ARM 仿真器驱动安装的直接链接" title="3.3 ARM 仿真器驱动安装的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">将 ARM 仿真器通过 USB 连接到电脑；</li>
+<li class="">电脑自动识别硬件，若未自动安装驱动，手动安装 ST-Link/V2 驱动；</li>
+<li class="">验证驱动：右键 <code>此电脑</code> -&gt; <code>管理</code> -&gt; <code>设备管理器</code>，查看 <code>端口</code> 或 <code>调试器</code> 列表中是否有 ARM 仿真器设备（无黄色感叹号即正常）。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="四开发板硬件连接">四、开发板硬件连接<a href="#四开发板硬件连接" class="hash-link" aria-label="四、开发板硬件连接的直接链接" title="四、开发板硬件连接的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="开发板连接" src="/tomato-can2eth-doc/assets/images/004-d619da43cc139e369c1a611b8418438b.jpg" width="320" height="427" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-核心连接步骤">4.1 核心连接步骤<a href="#41-核心连接步骤" class="hash-link" aria-label="4.1 核心连接步骤的直接链接" title="4.1 核心连接步骤的直接链接" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>供电连接</strong>：<!-- -->
+<ul>
+<li class="">将 DC 电源适配器输出端插入开发板 DC 接口；</li>
+<li class="">确认电源电压匹配（如 5V/12V），打开开发板电源开关，电源指示灯亮起即供电正常。</li>
+</ul>
+</li>
+<li class=""><strong>调试器连接（JTAG）</strong>：<!-- -->
+<ul>
+<li class="">将 ARM 仿真器的 JTAG 接口与开发板 JTAG 接口对齐（注意引脚定义，通常有防呆设计）；</li>
+<li class="">仿真器另一端通过 USB 连接到电脑，完成调试链路搭建。</li>
+</ul>
+</li>
+<li class=""><strong>以太网连接</strong>：<!-- -->
+<ul>
+<li class="">将网线一端插入开发板 RJ45 接口，另一端连接路由器 LAN 口或电脑网口；</li>
+<li class="">连接后，RJ45 接口的 LINK 指示灯亮起（常亮），数据指示灯（闪烁）表示链路正常。</li>
+</ul>
+</li>
+<li class=""><strong>串口调试连接</strong>：<!-- -->
+<ul>
+<li class="">若开发板有内置 USB 转串口：直接用 USB 线连接开发板 USB 串口与电脑；</li>
+<li class="">若为外置串口：用杜邦线连接 USB 转串口模块与开发板 UART 接口（TX-RX、RX-TX、GND-GND）；</li>
+<li class="">串口工具配置：波特率 115200、数据位 8、停止位 1、校验位 None、无流控。</li>
+</ul>
+</li>
+<li class=""><strong>CAN 模块连接（可选）</strong>：<!-- -->
+<ul>
+<li class="">将 CAN 模块的 CAN_H/CAN_L 引脚与开发板 CAN 接口对应连接；</li>
+<li class="">CAN 模块供电（3.3V/5V，匹配开发板电平），并接 120Ω 终端电阻（仅两端节点需要）。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-连接验证">4.2 连接验证<a href="#42-连接验证" class="hash-link" aria-label="4.2 连接验证的直接链接" title="4.2 连接验证的直接链接" translate="no">​</a></h3>
+<table><thead><tr><th>硬件模块</th><th>验证方式</th><th>正常状态</th></tr></thead><tbody><tr><td>供电</td><td>查看电源指示灯</td><td>常亮</td></tr><tr><td>JTAG 调试器</td><td>设备管理器查看仿真器设备</td><td>无黄色感叹号，识别为 ARM 调试器</td></tr><tr><td>以太网</td><td>查看 RJ45 指示灯</td><td>LINK 灯常亮，DATA 灯按需闪烁</td></tr><tr><td>串口</td><td>串口工具打开对应端口，发送 AT 指令（若支持）</td><td>能接收开发板回复或日志输出</td></tr><tr><td>CAN 模块</td><td>用 CAN 调试工具发送数据</td><td>开发板可接收 CAN 数据</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="五开发板工程配置与调试">五、开发板工程配置与调试<a href="#五开发板工程配置与调试" class="hash-link" aria-label="五、开发板工程配置与调试的直接链接" title="五、开发板工程配置与调试的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-基于-stm32cubemx-生成工程">5.1 基于 STM32CubeMX 生成工程<a href="#51-基于-stm32cubemx-生成工程" class="hash-link" aria-label="5.1 基于 STM32CubeMX 生成工程的直接链接" title="5.1 基于 STM32CubeMX 生成工程的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">打开 STM32CubeMX，点击 <code>New Project</code>，搜索 <code>STM32F107VCT6</code> 并选择对应芯片；</li>
+<li class="">按前文《STM32F107VCT6 ETH/CAN/LWIP 配置手册》完成引脚、ETH、CAN、LWIP、串口配置；</li>
+<li class="">点击 <code>Project Manager</code>，配置：<!-- -->
+<ul>
+<li class=""><code>Project Name</code>：自定义（如 STM32F107_ETH_CAN）；</li>
+<li class=""><code>Toolchain/IDE</code>：选择 <code>STM32CubeIDE</code>；</li>
+<li class=""><code>Project Location</code>：非中文路径；</li>
+</ul>
+</li>
+<li class="">点击 <code>GENERATE CODE</code>，生成 STM32CubeIDE 兼容工程。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-stm32cubeide-导入工程并调试">5.2 STM32CubeIDE 导入工程并调试<a href="#52-stm32cubeide-导入工程并调试" class="hash-link" aria-label="5.2 STM32CubeIDE 导入工程并调试的直接链接" title="5.2 STM32CubeIDE 导入工程并调试的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">打开 STM32CubeIDE，点击 <code>File</code> -&gt; <code>Import</code>；</li>
+<li class="">选择 <code>General</code> -&gt; <code>Existing Projects into Workspace</code>，点击 <code>Next</code>；</li>
+<li class="">选择 STM32CubeMX 生成的工程文件夹，勾选工程名，点击 <code>Finish</code>；</li>
+<li class=""><strong>调试配置</strong>：<!-- -->
+<ul>
+<li class="">右键工程 -&gt; <code>Debug As</code> -&gt; <code>Debug Configurations</code>；</li>
+<li class="">选择 <code>STM32 Cortex-M C/C++ Application</code>，点击 <code>New Launch Configuration</code>；</li>
+<li class=""><code>Debugger</code> 标签页：选择 <code>ST-Link (OpenOCD)</code>，确认 JTAG 接口正常；</li>
+<li class="">点击 <code>Debug</code> 进入调试模式。</li>
+</ul>
+</li>
+<li class=""><strong>日志输出验证</strong>：<!-- -->
+<ul>
+<li class="">打开串口调试助手，选择对应串口；</li>
+<li class="">运行程序，串口终端应输出 ETH/CAN/LWIP 初始化日志（如 IP 地址、CAN 波特率等）。</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="六常见问题排查">六、常见问题排查<a href="#六常见问题排查" class="hash-link" aria-label="六、常见问题排查的直接链接" title="六、常见问题排查的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-调试器连接失败">6.1 调试器连接失败<a href="#61-调试器连接失败" class="hash-link" aria-label="6.1 调试器连接失败的直接链接" title="6.1 调试器连接失败的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">检查 JTAG 引脚接线是否正确（VCC、GND、TCK、TMS、TDI、TDO）；</li>
+<li class="">确认开发板供电正常，仿真器驱动已正确安装；</li>
+<li class="">在 STM32CubeIDE 中重新配置调试器，选择正确的 JTAG 频率（如 1MHz 低速尝试）。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-串口无日志输出">6.2 串口无日志输出<a href="#62-串口无日志输出" class="hash-link" aria-label="6.2 串口无日志输出的直接链接" title="6.2 串口无日志输出的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">核对 UART 引脚配置（TX/RX 交叉连接）；</li>
+<li class="">检查串口工具波特率、数据位等参数是否与代码配置一致；</li>
+<li class="">确认代码中已实现 <code>printf</code> 重定向（参考前文串口配置章节）。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="63-以太网无法联网">6.3 以太网无法联网<a href="#63-以太网无法联网" class="hash-link" aria-label="6.3 以太网无法联网的直接链接" title="6.3 以太网无法联网的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">检查网线是否连通，路由器 DHCP 是否开启（若用动态 IP）；</li>
+<li class="">确认 ETH 外设配置为 RMII 模式，HSE 时钟已正确配置；</li>
+<li class="">在代码中添加以太网链路状态检测，打印链路是否连接。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="64-can-通信异常">6.4 CAN 通信异常<a href="#64-can-通信异常" class="hash-link" aria-label="6.4 CAN 通信异常的直接链接" title="6.4 CAN 通信异常的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">测量 CAN_H/CAN_L 总线电压（正常为 CAN_H≈3.5V，CAN_L≈1.5V）；</li>
+<li class="">检查 CAN 波特率计算是否正确（APB1 时钟最大 36MHz）；</li>
+<li class="">确认 CAN 模块终端电阻（120Ω）已正确焊接。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="#总结" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">开发环境配置核心：确保 STM32CubeMX/IDE 版本匹配，固件库与芯片型号兼容；</li>
+<li class="">硬件连接关键：JTAG 引脚对齐、串口 TX/RX 交叉连接、以太网链路正常；</li>
+<li class="">调试排查重点：驱动安装、供电稳定性、外设参数（波特率/IP 地址）配置正确性。</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/basic-tutorial/config-devel-environment.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/tomato-can2eth-doc/docs/category/基本教程"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">基本教程</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#一文档说明" class="table-of-contents__link toc-highlight">一、文档说明</a></li><li><a href="#二软硬件环境准备" class="table-of-contents__link toc-highlight">二、软硬件环境准备</a><ul><li><a href="#21-软件工具清单" class="table-of-contents__link toc-highlight">2.1 软件工具清单</a></li><li><a href="#22-硬件清单" class="table-of-contents__link toc-highlight">2.2 硬件清单</a></li></ul></li><li><a href="#三stm32-工具安装配置" class="table-of-contents__link toc-highlight">三、STM32 工具安装配置</a><ul><li><a href="#31-stm32cubemx-安装" class="table-of-contents__link toc-highlight">3.1 STM32CubeMX 安装</a></li><li><a href="#32-stm32cubeide-安装" class="table-of-contents__link toc-highlight">3.2 STM32CubeIDE 安装</a></li><li><a href="#33-arm-仿真器驱动安装" class="table-of-contents__link toc-highlight">3.3 ARM 仿真器驱动安装</a></li></ul></li><li><a href="#四开发板硬件连接" class="table-of-contents__link toc-highlight">四、开发板硬件连接</a><ul><li><a href="#41-核心连接步骤" class="table-of-contents__link toc-highlight">4.1 核心连接步骤</a></li><li><a href="#42-连接验证" class="table-of-contents__link toc-highlight">4.2 连接验证</a></li></ul></li><li><a href="#五开发板工程配置与调试" class="table-of-contents__link toc-highlight">五、开发板工程配置与调试</a><ul><li><a href="#51-基于-stm32cubemx-生成工程" class="table-of-contents__link toc-highlight">5.1 基于 STM32CubeMX 生成工程</a></li><li><a href="#52-stm32cubeide-导入工程并调试" class="table-of-contents__link toc-highlight">5.2 STM32CubeIDE 导入工程并调试</a></li></ul></li><li><a href="#六常见问题排查" class="table-of-contents__link toc-highlight">六、常见问题排查</a><ul><li><a href="#61-调试器连接失败" class="table-of-contents__link toc-highlight">6.1 调试器连接失败</a></li><li><a href="#62-串口无日志输出" class="table-of-contents__link toc-highlight">6.2 串口无日志输出</a></li><li><a href="#63-以太网无法联网" class="table-of-contents__link toc-highlight">6.3 以太网无法联网</a></li><li><a href="#64-can-通信异常" class="table-of-contents__link toc-highlight">6.4 CAN 通信异常</a></li><li><a href="#总结" class="table-of-contents__link toc-highlight">总结</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">支持</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-doc/wiki" target="_blank" rel="noopener noreferrer" class="footer__link-item">Wiki<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-doc/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://mp.weixin.qq.com/s/Cm5C4M9DegOSBryYzG2XEw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Origin<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-firmware" target="_blank" rel="noopener noreferrer" class="footer__link-item">tomato-can2eth-firmware<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 tomato-can2eth-doc, Inc.</div></div></div></footer></div>
+</body>
+</html>

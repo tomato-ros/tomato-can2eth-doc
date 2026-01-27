@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-basic-tutorial/config-mcu" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册 | tomato-can2eth-doc</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://tomato-ros.github.io/tomato-can2eth-doc/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://tomato-ros.github.io/tomato-can2eth-doc/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册 | tomato-can2eth-doc"><meta data-rh="true" name="description" content="一、文档说明"><meta data-rh="true" property="og:description" content="一、文档说明"><link data-rh="true" rel="icon" href="/tomato-can2eth-doc/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"><link data-rh="true" rel="alternate" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-mcu" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-mcu" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"基本教程","item":"https://tomato-ros.github.io/tomato-can2eth-doc/docs/category/基本教程"},{"@type":"ListItem","position":2,"name":"STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册","item":"https://tomato-ros.github.io/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"}]}</script><link rel="alternate" type="application/rss+xml" href="/tomato-can2eth-doc/blog/rss.xml" title="tomato-can2eth-doc RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/tomato-can2eth-doc/blog/atom.xml" title="tomato-can2eth-doc Atom Feed"><link rel="stylesheet" href="/tomato-can2eth-doc/assets/css/styles.d878059b.css">
+<script src="/tomato-can2eth-doc/assets/js/runtime~main.8033b600.js" defer="defer"></script>
+<script src="/tomato-can2eth-doc/assets/js/main.eee08ffa.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/tomato-can2eth-doc/img/logo.svg"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/tomato-can2eth-doc/"><div class="navbar__logo"><img src="/tomato-can2eth-doc/img/logo.svg" alt="tomato-can2eth-doc Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/tomato-can2eth-doc/img/logo.svg" alt="tomato-can2eth-doc Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">tomato-can2eth-doc</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/tomato-can2eth-doc/">首页</a><a class="navbar__item navbar__link" href="/tomato-can2eth-doc/docs/intro">文档</a><a class="navbar__item navbar__link" href="/tomato-can2eth-doc/blog">博客</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/tomato-ros/tomato-can2eth-doc" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/tomato-can2eth-doc/docs/intro"><span title="介绍" class="linkLabel_WmDU">介绍</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/tomato-can2eth-doc/docs/category/基本教程"><span title="基本教程" class="categoryLinkLabel_W154">基本教程</span></a><button aria-label="折叠侧边栏分类 &#x27;基本教程&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"><span title="STM32F107VCT6 开发环境配置详细操作手册" class="linkLabel_WmDU">STM32F107VCT6 开发环境配置详细操作手册</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/tomato-can2eth-doc/docs/basic-tutorial/config-mcu"><span title="STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册" class="linkLabel_WmDU">STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/tomato-can2eth-doc/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/tomato-can2eth-doc/docs/category/基本教程"><span>基本教程</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>STM32F107VCT6 开发板 ETH/CAN/LWIP 配置详细操作手册</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="一文档说明">一、文档说明<a href="#一文档说明" class="hash-link" aria-label="一、文档说明的直接链接" title="一、文档说明的直接链接" translate="no">​</a></h2>
+<p>本文档基于STM32F107VCT6开发板，详细介绍ETH（以太网）、CAN总线外设及LWIP协议栈的配置步骤，包含引脚使能、外设参数配置、LWIP协议栈配置及串口调试日志输出配置，适配STM32CubeMX工具配置流程。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="二环境准备">二、环境准备<a href="#二环境准备" class="hash-link" aria-label="二、环境准备的直接链接" title="二、环境准备的直接链接" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>软件环境</strong>
+<ul>
+<li class="">STM32CubeMX (Version 6.9.0及以上)</li>
+<li class="">MDK-ARM/STM32CubeIDE (编译调试工具)</li>
+<li class="">ST-Link驱动 (硬件调试器)</li>
+</ul>
+</li>
+<li class=""><strong>硬件环境</strong>
+<ul>
+<li class="">STM32F107VCT6开发板</li>
+<li class="">USB转串口模块 (调试日志输出)</li>
+<li class="">网线/CAN总线调试工具 (功能验证)</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="三引脚使能配置">三、引脚使能配置<a href="#三引脚使能配置" class="hash-link" aria-label="三、引脚使能配置的直接链接" title="三、引脚使能配置的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="引脚使能配置" src="/tomato-can2eth-doc/assets/images/000-afdc9d34187458033131fe026baa4f91.png" width="427" height="385" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-配置前提">3.1 配置前提<a href="#31-配置前提" class="hash-link" aria-label="3.1 配置前提的直接链接" title="3.1 配置前提的直接链接" translate="no">​</a></h3>
+<p>打开STM32CubeMX，新建工程并选择芯片型号<code>STM32F107VCT6</code>，进入&quot;Pinout &amp; Configuration&quot;页面。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-引脚功能分配">3.2 引脚功能分配<a href="#32-引脚功能分配" class="hash-link" aria-label="3.2 引脚功能分配的直接链接" title="3.2 引脚功能分配的直接链接" translate="no">​</a></h3>
+<table><thead><tr><th>引脚</th><th>功能</th><th>配置说明</th></tr></thead><tbody><tr><td>PA1</td><td>CAN1_RX</td><td>CAN1接收引脚</td></tr><tr><td>PA2</td><td>CAN1_TX</td><td>CAN1发送引脚</td></tr><tr><td>PA0-WKUP</td><td>以太网相关</td><td>以太网唤醒/状态引脚</td></tr><tr><td>PC1</td><td>ETH_MDC</td><td>以太网MAC数据时钟引脚</td></tr><tr><td>PC2</td><td>ETH_MDIO</td><td>以太网MAC数据输入输出引脚</td></tr><tr><td>PC3</td><td>ETH_TX_CLK</td><td>以太网发送时钟引脚</td></tr><tr><td>PB11</td><td>ETH_TX_EN</td><td>以太网发送使能引脚</td></tr><tr><td>PB12</td><td>ETH_TXD0</td><td>以太网发送数据0引脚</td></tr><tr><td>PB13</td><td>ETH_TXD1</td><td>以太网发送数据1引脚</td></tr><tr><td>PA7</td><td>ETH_CRS</td><td>以太网载波侦听引脚</td></tr><tr><td>PD8</td><td>ETH_RXD0</td><td>以太网接收数据0引脚</td></tr><tr><td>PD9</td><td>ETH_RXD1</td><td>以太网接收数据1引脚</td></tr><tr><td>PD10</td><td>ETH_RX_ER</td><td>以太网接收错误引脚</td></tr><tr><td>PD11</td><td>ETH_RX_EN</td><td>以太网接收使能引脚</td></tr><tr><td>PD12</td><td>ETH_RX_CLK</td><td>以太网接收时钟引脚</td></tr><tr><td>USART1_TX/</td><td>调试串口</td><td>根据开发板实际引脚配置</td></tr><tr><td>USART1_RX</td><td></td><td></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-配置步骤">3.3 配置步骤<a href="#33-配置步骤" class="hash-link" aria-label="3.3 配置步骤的直接链接" title="3.3 配置步骤的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">在STM32CubeMX的引脚配置界面，找到上述引脚，点击引脚下拉菜单选择对应功能；</li>
+<li class="">确保所有引脚未被其他外设占用（若有冲突，优先保留ETH/CAN功能）；</li>
+<li class="">配置完成后，点击&quot;Configuration&quot;标签进入外设配置页面。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="四eth外设配置">四、ETH外设配置<a href="#四eth外设配置" class="hash-link" aria-label="四、ETH外设配置的直接链接" title="四、ETH外设配置的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="ETH 外设配置" src="/tomato-can2eth-doc/assets/images/001-05c31cf1a4d61876d1daaf2af0ee68e6.png" width="450" height="377" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-基础配置">4.1 基础配置<a href="#41-基础配置" class="hash-link" aria-label="4.1 基础配置的直接链接" title="4.1 基础配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">进入&quot;Connectivity&quot; -&gt; &quot;ETH&quot;配置界面；</li>
+<li class=""><strong>模式选择</strong>：选择&quot;RMII&quot;模式（STM32F107推荐使用RMII，减少引脚占用）；</li>
+<li class=""><strong>时钟配置</strong>：<!-- -->
+<ul>
+<li class="">ETH时钟源选择<code>HSE</code> (高速外部时钟)；</li>
+<li class="">确保HSE时钟频率为8MHz/25MHz（根据开发板晶振配置）；</li>
+</ul>
+</li>
+<li class=""><strong>MAC配置</strong>：<!-- -->
+<ul>
+<li class="">使能&quot;MAC Reception&quot;和&quot;MAC Transmission&quot;；</li>
+<li class="">帧过滤模式选择&quot;Unicast &amp; Multicast&quot;；</li>
+<li class="">最大帧长度设置为1518字节（标准以太网帧长度）；</li>
+</ul>
+</li>
+<li class=""><strong>中断配置</strong>：<!-- -->
+<ul>
+<li class="">使能ETH全局中断；</li>
+<li class="">优先级设置：抢占优先级2，子优先级0（可根据实际需求调整）。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-高级配置">4.2 高级配置<a href="#42-高级配置" class="hash-link" aria-label="4.2 高级配置的直接链接" title="4.2 高级配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">使能&quot;Automatic Pad/Strip&quot;（自动填充/剥离帧尾）；</li>
+<li class="">使能&quot;Automatic CRC Generation&quot;（自动生成CRC校验）；</li>
+<li class="">禁用&quot;Loopback Mode&quot;（回环模式，仅调试时启用）；</li>
+<li class="">点击&quot;OK&quot;保存ETH配置。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="五can外设配置">五、CAN外设配置<a href="#五can外设配置" class="hash-link" aria-label="五、CAN外设配置的直接链接" title="五、CAN外设配置的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="CAN 外设配置" src="/tomato-can2eth-doc/assets/images/002-cd4f08d4ad0d8105b96c4512835a71be.png" width="454" height="422" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="51-can1基础配置">5.1 CAN1基础配置<a href="#51-can1基础配置" class="hash-link" aria-label="5.1 CAN1基础配置的直接链接" title="5.1 CAN1基础配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">进入&quot;Connectivity&quot; -&gt; &quot;CAN1&quot;配置界面；</li>
+<li class=""><strong>模式选择</strong>：<!-- -->
+<ul>
+<li class="">工作模式选择&quot;Normal&quot;（正常模式，调试时可先选Loopback模式）；</li>
+<li class="">时间触发通信模式（TTCM）：禁用；</li>
+<li class="">自动离线管理（ABOM）：使能；</li>
+<li class="">自动重传（AWUM）：使能；</li>
+</ul>
+</li>
+<li class=""><strong>波特率配置</strong>（关键）：<!-- -->
+<ul>
+<li class="">假设目标波特率为500Kbps，HSE=8MHz，配置如下：<!-- -->
+<ul>
+<li class="">预分频器 (Prescaler)：4；</li>
+<li class="">同步跳转宽度 (SJW)：1TQ；</li>
+<li class="">BS1：13TQ；</li>
+<li class="">BS2：2TQ；</li>
+<li class="">计算公式：<code>波特率 = APB1时钟 / (Prescaler * (BS1+BS2+1))</code>（APB1时钟最大36MHz）；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=""><strong>过滤器配置</strong>：<!-- -->
+<ul>
+<li class="">过滤器模式选择&quot;Mask Mode&quot;（掩码模式）；</li>
+<li class="">过滤器类型选择&quot;32-bit&quot;；</li>
+<li class="">过滤器分配给CAN1，过滤器编号0；</li>
+<li class="">过滤器触发模式：禁用FIFO溢出中断（根据需求调整）。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="52-can中断配置">5.2 CAN中断配置<a href="#52-can中断配置" class="hash-link" aria-label="5.2 CAN中断配置的直接链接" title="5.2 CAN中断配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">使能CAN1接收FIFO非空中断、发送完成中断；</li>
+<li class="">中断优先级：抢占优先级3，子优先级0；</li>
+<li class="">点击&quot;OK&quot;保存CAN配置。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="六lwip协议栈配置">六、LWIP协议栈配置<a href="#六lwip协议栈配置" class="hash-link" aria-label="六、LWIP协议栈配置的直接链接" title="六、LWIP协议栈配置的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="LWIP 配置" src="/tomato-can2eth-doc/assets/images/003-8660c1d6038e7a6d4ff3bf3118cc8e64.png" width="492" height="444" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-启用lwip">6.1 启用LWIP<a href="#61-启用lwip" class="hash-link" aria-label="6.1 启用LWIP的直接链接" title="6.1 启用LWIP的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">进入&quot;Middleware&quot; -&gt; &quot;LWIP&quot;配置界面；</li>
+<li class="">勾选&quot;Enable LWIP&quot;，选择LWIP版本（推荐V2.1.2）；</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-核心配置">6.2 核心配置<a href="#62-核心配置" class="hash-link" aria-label="6.2 核心配置的直接链接" title="6.2 核心配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>IP地址配置</strong>：<!-- -->
+<ul>
+<li class="">选择&quot;Static IP&quot;（静态IP）或&quot;DHCP&quot;（动态IP）；</li>
+<li class="">静态IP示例：<!-- -->
+<ul>
+<li class="">IP地址：192.168.1.100；</li>
+<li class="">子网掩码：255.255.255.0；</li>
+<li class="">网关：192.168.1.1；</li>
+<li class="">DNS服务器：8.8.8.8；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class=""><strong>协议使能</strong>：<!-- -->
+<ul>
+<li class="">使能TCP、UDP、ICMP（ping功能）；</li>
+<li class="">使能DHCP客户端（若使用动态IP）；</li>
+<li class="">禁用IPV6（STM32F107资源有限，优先IPV4）；</li>
+</ul>
+</li>
+<li class=""><strong>内存配置</strong>：<!-- -->
+<ul>
+<li class="">TCP发送缓冲区：2048字节；</li>
+<li class="">TCP接收缓冲区：2048字节；</li>
+<li class="">UDP缓冲区：1024字节；</li>
+<li class="">最大TCP连接数：4；</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="63-高级配置">6.3 高级配置<a href="#63-高级配置" class="hash-link" aria-label="6.3 高级配置的直接链接" title="6.3 高级配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">使能&quot;LWIP Debug Output&quot;（调试输出）；</li>
+<li class="">使能&quot;ETH Link Status Check&quot;（以太网链路状态检测）；</li>
+<li class="">禁用&quot;PPP&quot;（点对点协议，非必需）；</li>
+<li class="">点击&quot;OK&quot;保存LWIP配置。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="七串口调试日志配置">七、串口调试日志配置<a href="#七串口调试日志配置" class="hash-link" aria-label="七、串口调试日志配置的直接链接" title="七、串口调试日志配置的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="开发版串口输出调试日志" src="/tomato-can2eth-doc/assets/images/005-90cc69b224da38795f72b127b05731d9.jpg" width="424" height="121" class="img_ev3q"></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-串口外设配置">7.1 串口外设配置<a href="#71-串口外设配置" class="hash-link" aria-label="7.1 串口外设配置的直接链接" title="7.1 串口外设配置的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">进入&quot;Connectivity&quot; -&gt; &quot;USART1&quot;（或开发板实际调试串口）；</li>
+<li class="">模式选择&quot;Asynchronous&quot;（异步模式）；</li>
+<li class="">参数配置：<!-- -->
+<ul>
+<li class="">波特率：115200；</li>
+<li class="">数据位：8；</li>
+<li class="">停止位：1；</li>
+<li class="">校验位：None；</li>
+<li class="">流控：Disabled；</li>
+</ul>
+</li>
+<li class="">使能串口全局中断（优先级：抢占优先级4，子优先级0）；</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="72-重定向printf函数">7.2 重定向printf函数<a href="#72-重定向printf函数" class="hash-link" aria-label="7.2 重定向printf函数的直接链接" title="7.2 重定向printf函数的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">在工程中添加串口重定向代码（以MDK为例）：</li>
+</ol>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token macro property directive-hash" style="color:#36acaa">#</span><span class="token macro property directive keyword" style="color:#00009f">include</span><span class="token macro property" style="color:#36acaa"> </span><span class="token macro property string" style="color:#e3116c">&quot;stdio.h&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token macro property directive-hash" style="color:#36acaa">#</span><span class="token macro property directive keyword" style="color:#00009f">include</span><span class="token macro property" style="color:#36acaa"> </span><span class="token macro property string" style="color:#e3116c">&quot;stm32f1xx_hal.h&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// 重定向fputc函数，支持printf输出到串口</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">fputc</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> ch</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> FILE </span><span class="token operator" style="color:#393A34">*</span><span class="token plain">f</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token function" style="color:#d73a49">HAL_UART_Transmit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token operator" style="color:#393A34">&amp;</span><span class="token plain">huart1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token class-name">uint8_t</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token punctuation" style="color:#393A34">)</span><span class="token operator" style="color:#393A34">&amp;</span><span class="token plain">ch</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> HAL_MAX_DELAY</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">return</span><span class="token plain"> ch</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// 禁用半主机模式（必须）</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token macro property directive-hash" style="color:#36acaa">#</span><span class="token macro property directive keyword" style="color:#00009f">pragma</span><span class="token macro property" style="color:#36acaa"> </span><span class="token macro property expression function" style="color:#d73a49">import</span><span class="token macro property expression punctuation" style="color:#393A34">(</span><span class="token macro property expression" style="color:#36acaa">__use_no_semihosting</span><span class="token macro property expression punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">struct</span><span class="token plain"> </span><span class="token class-name">__FILE</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> handle</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">FILE __stdout</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">void</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">_sys_exit</span><span class="token punctuation" style="color:#393A34">(</span><span class="token keyword" style="color:#00009f">int</span><span class="token plain"> x</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  x </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> x</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<ol start="2">
+<li class="">在需要输出日志的地方调用<code>printf</code>函数，示例：</li>
+</ol>
+<div class="language-c codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-c codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// 初始化完成后输出日志</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">printf</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&quot;STM32F107 ETH/CAN/LWIP Config OK!\r\n&quot;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">printf</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&quot;IP Address: 192.168.1.100\r\n&quot;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">printf</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&quot;CAN Baudrate: 500Kbps\r\n&quot;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="73-日志输出验证">7.3 日志输出验证<a href="#73-日志输出验证" class="hash-link" aria-label="7.3 日志输出验证的直接链接" title="7.3 日志输出验证的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">编译工程并下载到开发板；</li>
+<li class="">串口工具（如SecureCRT/串口助手）配置：波特率115200、8N1、无流控；</li>
+<li class="">开发板上电后，串口工具应显示配置完成的日志信息。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="八工程生成与编译">八、工程生成与编译<a href="#八工程生成与编译" class="hash-link" aria-label="八、工程生成与编译的直接链接" title="八、工程生成与编译的直接链接" translate="no">​</a></h2>
+<ol>
+<li class="">在STM32CubeMX中点击&quot;Project Manager&quot;；</li>
+<li class="">配置工程名称、保存路径、工具链（MDK-ARM/STM32CubeIDE）；</li>
+<li class="">点击&quot;GENERATE CODE&quot;生成工程代码；</li>
+<li class="">打开生成的工程，编译并解决可能的依赖错误；</li>
+<li class="">下载代码到开发板，验证ETH/CAN/LWIP功能。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="九常见问题排查">九、常见问题排查<a href="#九常见问题排查" class="hash-link" aria-label="九、常见问题排查的直接链接" title="九、常见问题排查的直接链接" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>以太网无法通信</strong>：<!-- -->
+<ul>
+<li class="">检查RMII引脚配置是否正确；</li>
+<li class="">确认HSE时钟是否正常起振；</li>
+<li class="">检查LWIP IP地址与网关是否在同一网段；</li>
+</ul>
+</li>
+<li class=""><strong>CAN通信失败</strong>：<!-- -->
+<ul>
+<li class="">重新计算CAN波特率参数；</li>
+<li class="">检查CAN收发器（如TJA1050）供电是否正常；</li>
+<li class="">确认CAN总线终端电阻（120Ω）是否焊接；</li>
+</ul>
+</li>
+<li class=""><strong>串口无日志输出</strong>：<!-- -->
+<ul>
+<li class="">检查串口引脚配置是否正确；</li>
+<li class="">确认printf重定向代码是否添加；</li>
+<li class="">检查串口工具参数是否匹配。</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="总结">总结<a href="#总结" class="hash-link" aria-label="总结的直接链接" title="总结的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">STM32F107VCT6配置核心：ETH选RMII模式、CAN波特率需精准计算、LWIP优先配置静态IP；</li>
+<li class="">引脚配置需避免冲突，优先保障ETH/CAN核心引脚功能；</li>
+<li class="">串口日志重定向是调试关键，需禁用半主机模式并正确实现fputc函数。</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/basic-tutorial/config-mcu.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>编辑此页</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/tomato-can2eth-doc/docs/basic-tutorial/config-devel-environment"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">STM32F107VCT6 开发环境配置详细操作手册</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#一文档说明" class="table-of-contents__link toc-highlight">一、文档说明</a></li><li><a href="#二环境准备" class="table-of-contents__link toc-highlight">二、环境准备</a></li><li><a href="#三引脚使能配置" class="table-of-contents__link toc-highlight">三、引脚使能配置</a><ul><li><a href="#31-配置前提" class="table-of-contents__link toc-highlight">3.1 配置前提</a></li><li><a href="#32-引脚功能分配" class="table-of-contents__link toc-highlight">3.2 引脚功能分配</a></li><li><a href="#33-配置步骤" class="table-of-contents__link toc-highlight">3.3 配置步骤</a></li></ul></li><li><a href="#四eth外设配置" class="table-of-contents__link toc-highlight">四、ETH外设配置</a><ul><li><a href="#41-基础配置" class="table-of-contents__link toc-highlight">4.1 基础配置</a></li><li><a href="#42-高级配置" class="table-of-contents__link toc-highlight">4.2 高级配置</a></li></ul></li><li><a href="#五can外设配置" class="table-of-contents__link toc-highlight">五、CAN外设配置</a><ul><li><a href="#51-can1基础配置" class="table-of-contents__link toc-highlight">5.1 CAN1基础配置</a></li><li><a href="#52-can中断配置" class="table-of-contents__link toc-highlight">5.2 CAN中断配置</a></li></ul></li><li><a href="#六lwip协议栈配置" class="table-of-contents__link toc-highlight">六、LWIP协议栈配置</a><ul><li><a href="#61-启用lwip" class="table-of-contents__link toc-highlight">6.1 启用LWIP</a></li><li><a href="#62-核心配置" class="table-of-contents__link toc-highlight">6.2 核心配置</a></li><li><a href="#63-高级配置" class="table-of-contents__link toc-highlight">6.3 高级配置</a></li></ul></li><li><a href="#七串口调试日志配置" class="table-of-contents__link toc-highlight">七、串口调试日志配置</a><ul><li><a href="#71-串口外设配置" class="table-of-contents__link toc-highlight">7.1 串口外设配置</a></li><li><a href="#72-重定向printf函数" class="table-of-contents__link toc-highlight">7.2 重定向printf函数</a></li><li><a href="#73-日志输出验证" class="table-of-contents__link toc-highlight">7.3 日志输出验证</a></li></ul></li><li><a href="#八工程生成与编译" class="table-of-contents__link toc-highlight">八、工程生成与编译</a></li><li><a href="#九常见问题排查" class="table-of-contents__link toc-highlight">九、常见问题排查</a><ul><li><a href="#总结" class="table-of-contents__link toc-highlight">总结</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">支持</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-doc/wiki" target="_blank" rel="noopener noreferrer" class="footer__link-item">Wiki<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-doc/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://mp.weixin.qq.com/s/Cm5C4M9DegOSBryYzG2XEw" target="_blank" rel="noopener noreferrer" class="footer__link-item">Origin<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/tomato-ros/tomato-can2eth-firmware" target="_blank" rel="noopener noreferrer" class="footer__link-item">tomato-can2eth-firmware<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 tomato-can2eth-doc, Inc.</div></div></div></footer></div>
+</body>
+</html>

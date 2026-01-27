@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunktomato_can_2_eth_doc=globalThis.webpackChunktomato_can_2_eth_doc||[]).push([[8832],{7453(o){o.exports=JSON.parse('{"metadata":{"permalink":"/tomato-can2eth-doc/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

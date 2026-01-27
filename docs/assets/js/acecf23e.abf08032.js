@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunktomato_can_2_eth_doc=globalThis.webpackChunktomato_can_2_eth_doc||[]).push([[1903],{1912(o){o.exports=JSON.parse('{"blogBasePath":"/tomato-can2eth-doc/blog","blogTitle":"Blog","authorsListPath":"/tomato-can2eth-doc/blog/authors"}')}}]);
