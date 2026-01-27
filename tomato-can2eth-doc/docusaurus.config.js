@@ -90,15 +90,10 @@ const config = {
         },
         items: [
           { to: '/', label: '首页', position: 'left' },
+          { label: '文档', to: '/docs/intro' },
+          { to: '/blog', label: '博客', position: 'left' },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/tomato-ros/tomato-can2eth-doc',
             label: 'GitHub',
             position: 'right',
           },
@@ -110,27 +105,20 @@ const config = {
           {
             title: '支持',
             items: [
-              { label: 'Tutorial', to: '/docs/intro' },
+              { label: 'Wiki', href: 'https://github.com/tomato-ros/tomato-can2eth-doc/wiki' },
             ],
           },
           {
             title: '社区',
             items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
+              { label: 'Issues', href: 'https://github.com/tomato-ros/tomato-can2eth-doc/issues', },
+              { label: 'Origin', href: 'https://mp.weixin.qq.com/s/Cm5C4M9DegOSBryYzG2XEw', }
             ],
           },
           {
-            title: 'More',
+            title: '更多',
             items: [
-              { label: 'Blog', to: '/blog' },
-              { label: 'GitHub', href: 'https://github.com/facebook/docusaurus' },
+              { label: 'tomato-can2eth-firmware', href: 'https://github.com/tomato-ros/tomato-can2eth-firmware' },
             ],
           },
         ],
