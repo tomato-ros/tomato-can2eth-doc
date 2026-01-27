@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktomato_can_2_eth_doc=globalThis.webpackChunktomato_can_2_eth_doc||[]).push([[1235],{8552(a){a.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);

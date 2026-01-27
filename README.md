@@ -12,6 +12,49 @@ tomato-can2eth-doc 作为 tomato-can2eth 跨协议通信项目的官方技术文
 
 其核心目标是为开发者提供一站式技术参考，助力无 CAN 接口的物联网设备快速接入工业或农业场景的 CAN 网络，实现低成本、高效率的通信组网。
 
+## 如何运行
+
+```bash
+
+# 安装nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+# or
+bash nvm-v0.39.7-install.sh
+
+# 加载nvm环境变量
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# 安装nodejs
+nvm install 20.11.1
+nvm alias default 20.11.1
+nvm use 20.11.1
+
+# 创建docusaurus项目
+npx create-docusaurus@latest tomato-can2eth-doc classic --javascript
+
+# 进入项目目录
+cd tomato-can2eth-doc
+
+# 运行开发服务器,默认情况下，浏览器窗口将在 https://localhost:3000 打开
+npm start
+
+# 生成静态网页文件
+npm run build
+
+# 运行静态网页服务器
+npm run serve
+
+# 部署静态网页
+npm run deploy
+
+# 查看docusaurus版本
+npx docusaurus --version
+
+```
+
 ## 关于作者
 
 公众号《番茄ROS机器人》作者，长期致力于 ROS2 与 Autoware 框架下的低速无人驾驶解决方案研发，专注技术实战与经验沉淀，分享低速无人系统开发中的技术难点、解决方案与行业思考，与开发者共同推动低速无人驾驶技术的落地与创新。
